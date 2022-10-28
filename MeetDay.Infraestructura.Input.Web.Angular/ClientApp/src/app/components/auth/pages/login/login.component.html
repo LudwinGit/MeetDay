@@ -1,0 +1,48 @@
+<div class="container-fluid p-5">
+    <h2>MeetDay</h2>
+    <br>
+    <div class="container" [ngClass]="{'right-panel-active' : !login}" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Crear cuenta</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social"><i class="bi bi-google"></i></a>
+                </div>
+                <span>O puedes usar tu correo</span>
+                <input type="text" placeholder="Nombre" />
+                <input type="email" placeholder="Correo" />
+                <input type="password" placeholder="Contraseña" />
+                <button>Registrarse</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Iniciar sesión</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social"><i class="bi bi-google"></i></a>
+                </div>
+                <span>o usa tu correo</span>
+                <input type="email" placeholder="Correo" />
+                <input type="password" placeholder="Contraseña" />
+                <a href="#">Olvide mi contraseña</a>
+                <button type="button" (click)="signIn()">Iniciar sesión</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>¡Bienvenido!</h1>
+                    <p>Si ya cuentas con una cuenta puedes iniciar sesión acá</p>
+                    <button class="ghost" id="signIn" (click)="setSignIn()">Iniciar sesión</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>¡Hola!</h1>
+                    <p>Si no cuentas con una cuenta puedes registrarte acá</p>
+                    <button class="ghost" id="signUp" (click)="setSignUp()">Registrarme</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
