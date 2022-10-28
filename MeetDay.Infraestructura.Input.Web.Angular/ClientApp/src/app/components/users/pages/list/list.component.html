@@ -1,0 +1,73 @@
+<app-nav-menu-top></app-nav-menu-top>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-7 d-flex flex-column justify-content-center ">
+                    <p class="text-center text-title">Usuarios</p>
+                </div>
+                <div class="col-5">
+                    <img src="../../../../../assets/images/users-list.jpg" alt="" width="100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mb-2">
+            <button type="button" class="btn btn-primary" (click)="create()">Crear usuario</button>
+        </div>
+        <div class="col-12">
+            <table class="table table-bordered border-light ">
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Puesto</th>
+                        <th>Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EM0001</td>
+                        <td>Ludwin Romario</td>
+                        <td>Burrión Imuchac</td>
+                        <td>Administrador</td>
+                        <td>
+                            <span class="badge bg-success">Activo</span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger text-center"><i class="bi bi-trash"></i></button>
+                            <button type="button" class="btn btn-success m-1"><i class="bi bi-person-badge-fill"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EM0002</td>
+                        <td>Ricardo</td>
+                        <td>Martinez</td>
+                        <td>Verificador</td>
+                        <td>
+                            <span class="badge bg-success">Activo</span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger text-center"><i class="bi bi-trash"></i></button>
+                            <button type="button" class="btn btn-success m-1"><i class="bi bi-person-badge-fill"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EM0003</td>
+                        <td>Maria</td>
+                        <td>Marroquin</td>
+                        <td>Verificador</td>
+                        <td>
+                            <span class="badge bg-danger">Inactivo</span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger text-center"><i class="bi bi-trash"></i></button>
+                            <button type="button" class="btn btn-success m-1"><i class="bi bi-person-badge-fill"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

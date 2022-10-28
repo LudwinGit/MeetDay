@@ -1,0 +1,50 @@
+<app-nav-menu-top></app-nav-menu-top>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center text-title mb-5">
+            Crear cita
+        </div>
+        <div class="col-10 row">
+            <div class="col-7">
+                <form>
+                    <div class="mb-3">
+                        <label for="date">Fecha</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="time">Hora</label>
+                        <input type="time" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="gestion">Gestión</label>
+                        <select class="form-control" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="DPI">DPI</option>
+                            <option value="NIT">NIT</option>
+                            <option value="PASS">PASAPORTE</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comentarios" class="form-label">Comentarios</label>
+                        <textarea name="comentarios" rows="5" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-4" style="background-color: rgba(0, 0, 0, 0.1);">
+                <div class="p-3">
+                    <p class="text-center text-subtitle">Carga de documentos</p>
+                    <div class="mb-3">
+                        <label for="time">DPI</label>
+                        <input type="file" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="time">Boleta de pago</label>
+                        <input type="file" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

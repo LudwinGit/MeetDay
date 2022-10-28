@@ -15,5 +15,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     FormsModule,CommonModule,SkeletonRoutingModule
   ]
+  , exports:[
+    NavMenuTopComponent
+  ]
 })
 export class SkeletonModule { }

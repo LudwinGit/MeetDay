@@ -1,0 +1,38 @@
+<app-nav-menu-top></app-nav-menu-top>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center text-title mb-5">
+            Crear usuario
+        </div>
+        <div class="col-5">
+            <form>
+                <div class="mb-3">
+                    <label for="nombre">Nombre(s)</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="apellido">Apellido(s)</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="gestion">Role</label>
+                    <select class="form-control" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="DPI">Administrador</option>
+                        <option value="NIT">Gestionador</option>
+                        <option value="PASS">Validador</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="comentarios" class="form-label">Usuario</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="comentarios" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+</div>
