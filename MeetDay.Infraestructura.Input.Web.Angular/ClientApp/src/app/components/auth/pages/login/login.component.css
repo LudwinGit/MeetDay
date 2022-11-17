@@ -55,6 +55,10 @@ button {
     transition: transform 80ms ease-in;
 }
 
+button:disabled{
+    opacity: 0.4;
+}
+
 button:active {
     transform: scale(0.95);
 }

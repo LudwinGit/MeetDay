@@ -1,0 +1,17 @@
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\bin\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.deps.json
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\bin\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.runtimeconfig.json
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\bin\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.dll
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\bin\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.pdb
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\bin\Debug\net6.0\MeetDay.Dominio.dll
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\bin\Debug\net6.0\MeetDay.Dominio.pdb
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\obj\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.csproj.AssemblyReference.cache
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\obj\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\obj\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.AssemblyInfoInputs.cache
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\obj\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.AssemblyInfo.cs
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\obj\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.csproj.CoreCompileInputs.cache
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\obj\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.csproj.CopyComplete
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\obj\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.dll
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\obj\Debug\net6.0\refint\MeetDay.Infraestructura.Output.Data.Postgresql.dll
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\obj\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.pdb
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\obj\Debug\net6.0\MeetDay.Infraestructura.Output.Data.Postgresql.genruntimeconfig.cache
+C:\Users\Ludwi\Documents\Universidad\Seminario Investigacion\Aplicacion\MeetDay.Infraestructura.Output.Data.Postgresql\obj\Debug\net6.0\ref\MeetDay.Infraestructura.Output.Data.Postgresql.dll
