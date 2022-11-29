@@ -1,3 +1,5 @@
+using MeetDay.Aplicacion.Core.Interfaces;
+using MeetDay.Dominio.Core.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
@@ -6,10 +8,15 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
     [ApiController]
     public class GestionController : ControllerBase
     {
-        [HttpGet]
-        public IEnumerable<string> Get()
+        // private readonly IGestionService<Gestion,Guid> _gestionService;
+        public GestionController()
         {
-            return new string[] { "value1", "value2" };
+            // _gestionService = gestionService;
+        }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok("helthcheck");
         }
     }
 }

@@ -1,8 +1,32 @@
+using MeetDay.Aplicacion.Core.Interfaces;
+using MeetDay.Aplicacion.Core.Services;
+using MeetDay.Dominio.Core.Entity;
+using MeetDay.Dominio.Core.Interfaces.Repositories;
+using MeetDay.Infraestructura.Output.Data.Postgresql.Contexts;
+using MeetDay.Infraestructura.Output.Data.Postgresql.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+string connectionString = builder.Configuration.GetConnectionString("PostgreSQL");
+
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<MeetDayContext>(
+    options => options.UseNpgsql(connectionString, b =>
+    {
+        b.MigrationsAssembly("MeetDay.Infraestructura.Input.Web.Angular");
+    }).LogTo(Console.WriteLine, LogLevel.Information)
+);
+
+
+// builder.Services.AddScoped<IGestionService<Gestion,Guid>,GestionService>();
+// builder.Services.AddScoped<IOtherService<Gestion>, OtherService>();
+builder.Services.AddScoped<IUserRepository<User,int>, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 
@@ -22,6 +46,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
 
-app.MapFallbackToFile("index.html");;
+app.MapFallbackToFile("index.html"); ;
 
 app.Run();

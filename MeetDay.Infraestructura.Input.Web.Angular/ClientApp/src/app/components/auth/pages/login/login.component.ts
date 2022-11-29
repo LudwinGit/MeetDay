@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import ValidateForm from 'src/helpers/validateForm';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
     }
     else{
-      this.validateAllFormFields(this.loginForm)
+      ValidateForm.validateAllFormFields(this.loginForm)
     }
   }
 
@@ -40,20 +41,8 @@ export class LoginComponent implements OnInit {
 
     }
     else{
-      this.validateAllFormFields(this.loginForm)
+      ValidateForm.validateAllFormFields(this.loginForm)
     }
-  }
-
-  private validateAllFormFields(formGroup: FormGroup){
-    Object.keys(formGroup.controls).forEach(field=>{
-      const control = formGroup.get(field);
-      if(control instanceof FormControl){
-        control.markAsDirty({onlySelf: true});
-      }
-      else if(control instanceof FormGroup){
-        this.validateAllFormFields(control)
-      }
-    })
   }
 
   setSignUp() {
