@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import ValidateForm from 'src/helpers/validateForm';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   login: Boolean = true;
   loginForm!: FormGroup;
   sigupForm!: FormGroup;
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router, private service: AuthService) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({

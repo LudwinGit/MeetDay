@@ -41,18 +41,28 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register(RegisterDto registerDto){
+        public IActionResult Register(RegisterDto registerDto)
+        {
             try
             {
-                if(ModelState.IsValid){
+                if (ModelState.IsValid)
+                {
+                    _userService.Register(registerDto);
                     return Ok();
                 }
-                else{
+                else
+                {
                     return BadRequest(ModelState);
                 }
             }
-            catch (System.Exception)
+            catch (ExistException ex)
             {
+                _logger.LogError(ex.Message, ex);
+                return BadRequest("El usuario ya existe");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
                 return BadRequest("Error del servidor");
             }
         }

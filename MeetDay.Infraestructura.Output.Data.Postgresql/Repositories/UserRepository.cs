@@ -14,7 +14,9 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
         }
         public User Add(User Entity)
         {
-            throw new NotImplementedException();
+            _db.Users.Add(Entity);
+            _db.SaveChanges();
+            return Entity;
         }
 
         public void Delete(int Id)
@@ -57,9 +59,9 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
             return user;
         }
 
-        public void SaveChanges()
+        public async void SaveChanges()
         {
-            throw new NotImplementedException();
+            await _db.SaveChangesAsync();
         }
     }
 }

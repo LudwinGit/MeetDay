@@ -24,7 +24,18 @@ namespace MeetDay.Aplicacion.Core.Services
 
         public User Register(RegisterDto registerDto)
         {
-            return null;
+            var user = _userRepository.FindByUsername(registerDto.Username);
+            if(user!=null)
+                throw new ExistException("Username exist");
+            
+            var newUser =_userRepository.Add(new User{
+                FirstName = registerDto.FirstName,
+                LastName = registerDto.LastName,
+                Username = registerDto.Username,
+                Password = registerDto.Password,
+                Email = registerDto.Email
+            });
+            return newUser;
         }
     }
 }
