@@ -12,7 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 string connectionString = builder.Configuration.GetConnectionString("PostgreSQL");
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().ConfigureApiBehaviorOptions(options=>{
+    options.SuppressModelStateInvalidFilter = true;
+});
 builder.Services.AddDbContext<MeetDayContext>(
     options => options.UseNpgsql(connectionString, b =>
     {

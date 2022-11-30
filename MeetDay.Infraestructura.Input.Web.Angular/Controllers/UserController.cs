@@ -12,15 +12,10 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
     {
         private readonly ILogger<UserController> _logger;
         private readonly IUserService _userService;
-        public UserController(ILogger<UserController> logger,IUserService userService)
+        public UserController(ILogger<UserController> logger, IUserService userService)
         {
             _logger = logger;
             _userService = userService;
-        }
-
-        [HttpGet]
-        public IActionResult get(){
-            return Ok("yes");
         }
 
         [HttpPost("authenticate")]
@@ -28,20 +23,37 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
         {
             try
             {
-                if(_userService.Login(loginDto))
-                    return Ok();
+                if (_userService.Login(loginDto))
+                    return Ok(new { Message = "Login Success!" });
 
                 return StatusCode(StatusCodes.Status401Unauthorized);
             }
             catch (NotFoundException ex)
             {
-                _logger.LogInformation(ex.Message,ex);
-                return NotFound();
+                _logger.LogInformation(ex.Message, ex);
+                return NotFound(new { Message = ex.Message });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
                 return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        [HttpPost("register")]
+        public IActionResult Register(RegisterDto registerDto){
+            try
+            {
+                if(ModelState.IsValid){
+                    return Ok();
+                }
+                else{
+                    return BadRequest(ModelState);
+                }
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Error del servidor");
             }
         }
     }

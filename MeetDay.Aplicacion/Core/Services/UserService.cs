@@ -21,5 +21,10 @@ namespace MeetDay.Aplicacion.Core.Services
                 throw new NotFoundException("User Not Found!");
             return true;
         }
+
+        public User Register(RegisterDto registerDto)
+        {
+            return null;
+        }
     }
 }

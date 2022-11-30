@@ -6,5 +6,6 @@ namespace MeetDay.Aplicacion.Core.Interfaces
     public interface IUserService
     {
          bool Login(LoginDto loginDto);
+         User Register(RegisterDto registerDto);
     }
 }
