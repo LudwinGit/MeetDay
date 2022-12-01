@@ -31,6 +31,15 @@ export class LoginComponent implements OnInit {
 
   onSubmitLogin() {
     if (this.loginForm.valid) {
+      this.service.login(this.loginForm.value)
+      .subscribe({
+        next:(res)=>{
+          alert(res.message)
+        },
+        error:(err)=>{
+          alert(err?.error.message)
+        }
+      })
     }
     else{
       ValidateForm.validateAllFormFields(this.loginForm)
@@ -39,7 +48,7 @@ export class LoginComponent implements OnInit {
 
   onSubmitSignUp() {
     if(this.sigupForm.valid){
-
+      this.service.signUp(this.sigupForm.value)
     }
     else{
       ValidateForm.validateAllFormFields(this.loginForm)
