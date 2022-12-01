@@ -5,7 +5,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
 {
-    public partial class userCreate : Migration
+    public partial class createUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
 {
     [DbContext(typeof(MeetDayContext))]
-    [Migration("20221201050214_userCreate")]
-    partial class userCreate
+    [Migration("20221201172806_createUser")]
+    partial class createUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

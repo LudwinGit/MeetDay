@@ -2,7 +2,7 @@ using AutoMapper;
 using MeetDay.Dominio.Core.Dtos.User;
 using MeetDay.Dominio.Core.Entity;
 
-namespace MeetDay.Infraestructura.Input.Web.Angular.Utils
+namespace MeetDay.Aplicacion.Utils
 {
     public class AutoMapperProfile : Profile
     {

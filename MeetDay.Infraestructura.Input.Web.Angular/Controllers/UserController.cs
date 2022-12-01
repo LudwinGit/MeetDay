@@ -1,8 +1,11 @@
+using System.Net;
+using System.Security.Claims;
 using System.Security.Authentication;
 using MeetDay.Aplicacion.Core.Interfaces;
 using MeetDay.Dominio.Core.Dtos.User;
 using MeetDay.Dominio.Core.Exceptions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
 {
@@ -23,8 +26,7 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
         {
             try
             {
-                _userService.Login(loginDto);
-                return Ok(new { Message = "¡Inicio de sesión!" });
+                return Ok(_userService.Login(loginDto));
             }
             catch (NotFoundException ex)
             {
@@ -68,6 +70,14 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
                 _logger.LogError(ex.Message, ex);
                 return BadRequest("Error del servidor");
             }
+        }
+
+        [HttpGet("test")]
+        [Authorize]
+        public IActionResult test()
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            return Ok();
         }
     }
 }
