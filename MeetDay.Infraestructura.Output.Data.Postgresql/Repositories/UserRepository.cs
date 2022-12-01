@@ -34,6 +34,13 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
             return _db.Users.ToList();
         }
 
+        public User FindByEmail(string email)
+        {
+            return _db.Users
+                    .Where(f => f.Email == email)
+                    .FirstOrDefault();
+        }
+
         public async Task<User> FindById(int Id)
         {
             return await _db.Users.FindAsync(Id);

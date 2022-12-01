@@ -15,7 +15,7 @@ namespace MeetDay.Dominio.Core.Entity
         public string LastName { get; set; }
         [MaxLength(50)]
         public string Username { get; set; }
-        [MaxLength(50)]
+        [MaxLength(150)]
         public string Password { get; set; }
         [MaxLength(50)]
         public string Token { get; set; }

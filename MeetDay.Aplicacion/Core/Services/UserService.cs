@@ -1,4 +1,6 @@
+using System.Security.Authentication;
 using MeetDay.Aplicacion.Core.Interfaces;
+using MeetDay.Aplicacion.Utils;
 using MeetDay.Dominio.Core.Dtos.User;
 using MeetDay.Dominio.Core.Entity;
 using MeetDay.Dominio.Core.Exceptions;
@@ -19,6 +21,8 @@ namespace MeetDay.Aplicacion.Core.Services
             var user = _userRepository.FindByUsername(loginDto.username);
             if(user==null)
                 throw new NotFoundException("User Not Found!");
+            if(PasswordHasher.VerifyPassword(loginDto.password,user.Password))
+                throw new InvalidCredentialException("Login - Password Invalid.");
             return true;
         }
 
@@ -26,14 +30,22 @@ namespace MeetDay.Aplicacion.Core.Services
         {
             var user = _userRepository.FindByUsername(registerDto.Username);
             if(user!=null)
-                throw new ExistException("Username exist");
+                throw new ExistException("El usuario ya existe");
+
+            user = _userRepository.FindByEmail(registerDto.Email);
             
+            if(user!=null)
+                throw new ExistException("El correo ya existe.");
+
+
             var newUser =_userRepository.Add(new User{
                 FirstName = registerDto.FirstName,
                 LastName = registerDto.LastName,
                 Username = registerDto.Username,
-                Password = registerDto.Password,
-                Email = registerDto.Email
+                Password = PasswordHasher.HashPassword(registerDto.Password),
+                Email = registerDto.Email,
+                Role = "USR",
+                Token = ""
             });
             return newUser;
         }

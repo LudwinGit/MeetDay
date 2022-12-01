@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
 {
     [DbContext(typeof(MeetDayContext))]
-    [Migration("20221129014039_userCreate")]
+    [Migration("20221201050214_userCreate")]
     partial class userCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,8 +45,8 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
                         .HasColumnType("character varying(50)");
 
                     b.Property<string>("Password")
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
 
                     b.Property<string>("Role")
                         .HasMaxLength(3)

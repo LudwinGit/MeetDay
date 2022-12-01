@@ -4,5 +4,6 @@ namespace MeetDay.Dominio.Core.Interfaces.Repositories
     IAdd<T>, IEdit<T>, IDelete<TId>, IList<T,TId>, ITransaction
     {
         T FindByUsername(string username);
+        T FindByEmail(string email);
     }
 }

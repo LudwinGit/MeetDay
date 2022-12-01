@@ -191,7 +191,7 @@ export class FunctionsService {
         icon: 'info',
         text: message
       });
-      Swal.showLoading(Swal.getDenyButton());
+      Swal.showLoading();
 
     }else{
       Swal.close();

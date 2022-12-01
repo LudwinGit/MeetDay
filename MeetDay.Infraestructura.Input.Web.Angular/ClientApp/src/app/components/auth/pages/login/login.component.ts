@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
+import { FunctionsService } from 'src/app/utilities/functions.service';
 import ValidateForm from 'src/helpers/validateForm';
 import { AuthService } from '../../auth.service';
 
@@ -13,7 +19,12 @@ export class LoginComponent implements OnInit {
   login: Boolean = true;
   loginForm!: FormGroup;
   sigupForm!: FormGroup;
-  constructor(private fb: FormBuilder, private router: Router, private service: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private _service: AuthService,
+    private _utils: FunctionsService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -24,34 +35,43 @@ export class LoginComponent implements OnInit {
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      telephone: ['',Validators.required],
-      password: ['',Validators.required]
+      telephone: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
   onSubmitLogin() {
     if (this.loginForm.valid) {
-      this.service.login(this.loginForm.value)
-      .subscribe({
-        next:(res)=>{
-          alert(res.message)
+      this._utils.loading(1, 'Autenticando usuario...');
+      this._service.login(this.loginForm.value).subscribe({
+        next: (res) => {
+          this._utils.loading(0);
+          alert(res.message);
         },
-        error:(err)=>{
-          alert(err?.error.message)
-        }
-      })
-    }
-    else{
-      ValidateForm.validateAllFormFields(this.loginForm)
+        error: (err) => {
+          alert(err?.error.message);
+        },
+      });
+    } else {
+      ValidateForm.validateAllFormFields(this.loginForm);
     }
   }
 
   onSubmitSignUp() {
-    if(this.sigupForm.valid){
-      this.service.signUp(this.sigupForm.value)
-    }
-    else{
-      ValidateForm.validateAllFormFields(this.loginForm)
+    if (this.sigupForm.valid) {
+      this._utils.loading(1, 'Creación de usuario');
+      this._service.signUp(this.sigupForm.value).subscribe({
+        next: (res) => {
+          this._utils.loading(0);
+          this.sigupForm.reset();
+          this.router.navigate(['auth'])
+        },
+        error: (err) => {
+          alert(err?.error.message);
+        },
+      });
+    } else {
+      ValidateForm.validateAllFormFields(this.loginForm);
     }
   }
 

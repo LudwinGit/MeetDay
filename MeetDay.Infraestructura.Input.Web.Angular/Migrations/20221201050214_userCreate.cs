@@ -18,7 +18,7 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
                     FirstName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Username = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
-                    Password = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    Password = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: true),
                     Token = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Role = table.Column<string>(type: "character varying(3)", maxLength: 3, nullable: true),
                     Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),

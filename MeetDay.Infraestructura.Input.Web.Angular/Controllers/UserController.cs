@@ -1,6 +1,6 @@
+using System.Security.Authentication;
 using MeetDay.Aplicacion.Core.Interfaces;
 using MeetDay.Dominio.Core.Dtos.User;
-using MeetDay.Dominio.Core.Entity;
 using MeetDay.Dominio.Core.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,15 +23,18 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
         {
             try
             {
-                if (_userService.Login(loginDto))
-                    return Ok(new { Message = "Login Success!" });
-
-                return StatusCode(StatusCodes.Status401Unauthorized);
+                _userService.Login(loginDto);
+                return Ok(new { Message = "¡Inicio de sesión!" });
             }
             catch (NotFoundException ex)
             {
                 _logger.LogInformation(ex.Message, ex);
-                return NotFound(new { Message = ex.Message });
+                return NotFound(new { Message = "¡Usuario no existe!" });
+            }
+            catch (InvalidCredentialException ex)
+            {
+                _logger.LogInformation(ex.Message, ex);
+                return Unauthorized(new { Message = "¡Credenciales incorrectas!" });
             }
             catch (Exception ex)
             {
@@ -58,7 +61,7 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
             catch (ExistException ex)
             {
                 _logger.LogError(ex.Message, ex);
-                return BadRequest("El usuario ya existe");
+                return BadRequest(new { Message = ex.Message });
             }
             catch (Exception ex)
             {

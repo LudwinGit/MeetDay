@@ -7,10 +7,10 @@ import { Inject, Injectable } from '@angular/core';
 export class AuthService {
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {}
   signUp(userObj: any) {
-    return this.http.post<any>(`${this.baseUrl}/register`,userObj)
+    return this.http.post<any>(`${this.baseUrl}api/user/register`,userObj)
   }
 
   login(loginObj: any){
-    return this.http.post<any>(`${this.baseUrl}/authenticate`,loginObj)
+    return this.http.post<any>(`${this.baseUrl}api/user/authenticate`,loginObj)
   }
 }
