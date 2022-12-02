@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
 {
-    public partial class createUser : Migration
+    public partial class userCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,10 +20,11 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
                     LastName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Username = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Password = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: true),
-                    Token = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Role = table.Column<string>(type: "character varying(3)", maxLength: 3, nullable: true),
                     Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
-                    State = table.Column<string>(type: "character varying(3)", maxLength: 3, nullable: true)
+                    State = table.Column<string>(type: "character varying(3)", maxLength: 3, nullable: true),
+                    DateCreate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DateUpdate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
