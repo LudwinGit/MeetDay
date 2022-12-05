@@ -12,19 +12,19 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
         {
             _db = db;
         }
-        public User Add(User Entity)
+        public async Task<User> AddAsync(User entity)
         {
-            _db.Users.Add(Entity);
-            _db.SaveChanges();
-            return Entity;
+            _db.Users.Add(entity);
+            await _db.SaveChangesAsync();
+            return entity;
         }
 
-        public void Delete(int Id)
+        public void Delete(User entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Edit(User Entity)
+        public Task<int> Edit(User entity)
         {
             throw new NotImplementedException();
         }
@@ -41,9 +41,9 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
                     .FirstOrDefault();
         }
 
-        public async Task<User> FindById(int Id)
+        public async Task<User> FindById(int id)
         {
-            return await _db.Users.FindAsync(Id);
+            return await _db.Users.FindAsync(id);
         }
 
         public User FindByUsername(string username)
@@ -58,17 +58,12 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<User> ListById(int Id)
+        public async Task<User> ListById(int id)
         {
-            var user = await _db.Users.FindAsync(Id);
+            var user = await _db.Users.FindAsync(id);
             if (user == null)
                 throw new NotFoundException("User not found!");
             return user;
-        }
-
-        public async void SaveChanges()
-        {
-            await _db.SaveChangesAsync();
         }
     }
 }

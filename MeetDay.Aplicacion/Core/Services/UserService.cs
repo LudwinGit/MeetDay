@@ -56,7 +56,7 @@ namespace MeetDay.Aplicacion.Core.Services
             };
         }
 
-        public User Register(RegisterDto registerDto)
+        public async Task<User> Register(RegisterDto registerDto)
         {
             var user = _userRepository.FindByUsername(registerDto.Username);
             if (user != null)
@@ -68,15 +68,13 @@ namespace MeetDay.Aplicacion.Core.Services
                 throw new ExistException("El correo ya existe.");
 
 
-            var newUser = _userRepository.Add(new User
+            var newUser = await _userRepository.AddAsync(new User
             {
                 FirstName = registerDto.FirstName,
                 LastName = registerDto.LastName,
                 Username = registerDto.Username,
                 Password = PasswordHasher.HashPassword(registerDto.Password),
-                Email = registerDto.Email,
-                Role = "USR",
-                Token = ""
+                Email = registerDto.Email
             });
             return newUser;
         }

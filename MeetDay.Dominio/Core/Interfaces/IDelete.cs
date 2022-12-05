@@ -1,7 +1,7 @@
 namespace MeetDay.Dominio.Core.Interfaces
 {
-    public interface IDelete<TId>
+    public interface IDelete<T>
     {
-         void Delete(TId Id);
+         void Delete(T entity);
     }
 }

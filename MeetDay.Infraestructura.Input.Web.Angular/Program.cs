@@ -31,6 +31,9 @@ builder.Services.AddDbContext<MeetDayContext>(
 // builder.Services.AddScoped<IOtherService<Gestion>, OtherService>();
 builder.Services.AddScoped<IUserRepository<User, int>, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IManagementRepository<Management, int>, ManagementRepository>();
+builder.Services.AddScoped<IManagementService, ManagementService>();
+
 
 builder.Services.AddAutoMapper(typeof(Program));
 

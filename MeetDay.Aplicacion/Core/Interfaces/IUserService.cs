@@ -7,6 +7,6 @@ namespace MeetDay.Aplicacion.Core.Interfaces
     public interface IUserService
     {
          ResponseDto Login(LoginDto loginDto);
-         User Register(RegisterDto registerDto);
+         Task<User> Register(RegisterDto registerDto);
     }
 }

@@ -1,7 +1,7 @@
 namespace MeetDay.Dominio.Core.Interfaces.Repositories
 {
     public interface IUserRepository<T,TId> : 
-    IAdd<T>, IEdit<T>, IDelete<TId>, IList<T,TId>, ITransaction
+    IAdd<T>, IEdit<T>, IDelete<T>, IList<T,TId>
     {
         T FindByUsername(string username);
         T FindByEmail(string email);

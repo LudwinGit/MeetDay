@@ -2,6 +2,6 @@ namespace MeetDay.Dominio.Core.Interfaces
 {
     public interface IEdit<T>
     {
-         void Edit(T Entity);
+         Task<int> Edit(T entity);
     }
 }

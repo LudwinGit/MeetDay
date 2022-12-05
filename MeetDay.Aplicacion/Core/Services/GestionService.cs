@@ -4,7 +4,7 @@ using MeetDay.Dominio.Core.Interfaces;
 
 namespace MeetDay.Aplicacion.Core.Services
 {
-    public class GestionService : IGestionService<Gestion, Guid>
+    public class GestionService : IGestionService<Management, Guid>
     {
         // private readonly IRepositorioBase<Gestion,Guid> _repoProducto;
         // public GestionService(IRepositorioBase<Gestion,Guid> repoProducto)

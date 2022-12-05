@@ -5,12 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MeetDay.Infraestructura.Output.Data.Postgresql.Configs
 {
-    public class GestionConfig : IEntityTypeConfiguration<Gestion>
+    public class ManagementConfig : IEntityTypeConfiguration<Management>
     {
-        public void Configure(EntityTypeBuilder<Gestion> builder)
+        public void Configure(EntityTypeBuilder<Management> builder)
         {
-            builder.ToTable("gestion");
-            builder.HasKey(e=>e.gestionId);
+            builder.HasKey(e=>e.Id);
         }
     }
 }

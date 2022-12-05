@@ -17,15 +17,15 @@ namespace MeetDay.Dominio.Core.Entity
         public string Username { get; set; }
         [MaxLength(150)]
         public string Password { get; set; }
-        [MaxLength(50)]
-        public string Token { get; set; }
         [MaxLength(3)]
-        public string Role { get; set; }
+        public string Role { get; set; } = "USR";
         [MaxLength(100)]
 
-        [EmailAddress(ErrorMessage ="Invalid Email Address")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
         [MaxLength(3)]
-        public string State { get; set; } = "A";
+        public string State { get; set; } = "ACT";
+        public DateTime DateCreate { get; set; } = DateTime.Now;
+        public DateTime DateUpdate { get; set; }
     }
 }
