@@ -7,6 +7,7 @@ namespace MeetDay.Dominio.Core.Entity
     public class Management
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [MaxLength(150)]
         public string Name { get; set; }

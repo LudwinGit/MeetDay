@@ -7,6 +7,7 @@ namespace MeetDay.Dominio.Core.Entity
     public class User
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [MaxLength(50)]
         [Required]
@@ -26,6 +27,6 @@ namespace MeetDay.Dominio.Core.Entity
         [MaxLength(3)]
         public string State { get; set; } = "ACT";
         public DateTime DateCreate { get; set; } = DateTime.Now;
-        public DateTime DateUpdate { get; set; }
+        public DateTime DateUpdate { get; set; } = DateTime.Now;
     }
 }

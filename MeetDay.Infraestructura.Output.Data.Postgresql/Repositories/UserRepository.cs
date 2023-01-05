@@ -7,15 +7,15 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
 {
     public class UserRepository : IUserRepository<User, int>
     {
-        private readonly MeetDayContext _db;
+        private readonly MeetDayContext _context;
         public UserRepository(MeetDayContext db)
         {
-            _db = db;
+            _context = db;
         }
         public async Task<User> AddAsync(User entity)
         {
-            _db.Users.Add(entity);
-            await _db.SaveChangesAsync();
+            await _context.Users.AddAsync(entity);
+            _context.SaveChanges();
             return entity;
         }
 
@@ -31,24 +31,24 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
 
         public List<User> FindAll()
         {
-            return _db.Users.ToList();
+            return _context.Users.ToList();
         }
 
         public User FindByEmail(string email)
         {
-            return _db.Users
+            return _context.Users
                     .Where(f => f.Email == email)
                     .FirstOrDefault();
         }
 
         public async Task<User> FindById(int id)
         {
-            return await _db.Users.FindAsync(id);
+            return await _context.Users.FindAsync(id);
         }
 
         public User FindByUsername(string username)
         {
-            return _db.Users
+            return _context.Users
                     .Where(f => f.Username == username.ToLower())
                     .FirstOrDefault();
         }
@@ -60,7 +60,7 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
 
         public async Task<User> ListById(int id)
         {
-            var user = await _db.Users.FindAsync(id);
+            var user = await _context.Users.FindAsync(id);
             if (user == null)
                 throw new NotFoundException("User not found!");
             return user;

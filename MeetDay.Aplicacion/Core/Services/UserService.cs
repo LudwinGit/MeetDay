@@ -63,11 +63,9 @@ namespace MeetDay.Aplicacion.Core.Services
                 throw new ExistException("El usuario ya existe");
 
             user = _userRepository.FindByEmail(registerDto.Email);
-
             if (user != null)
                 throw new ExistException("El correo ya existe.");
-
-
+                
             var newUser = await _userRepository.AddAsync(new User
             {
                 FirstName = registerDto.FirstName,
