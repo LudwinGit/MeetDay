@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
 {
     [DbContext(typeof(MeetDayContext))]
-    [Migration("20221202025325_userCreate")]
+    [Migration("20230105203237_userCreate")]
     partial class userCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,7 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
                     b.Property<DateTime>("DateCreate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("DateUpdate")
+                    b.Property<DateTime>("DateUpdate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")

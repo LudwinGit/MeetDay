@@ -26,6 +26,7 @@ builder.Services.AddDbContext<MeetDayContext>(
     }).LogTo(Console.WriteLine, LogLevel.Information)
 );
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // builder.Services.AddScoped<IGestionService<Gestion,Guid>,GestionService>();
 // builder.Services.AddScoped<IOtherService<Gestion>, OtherService>();

@@ -26,7 +26,8 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
         {
             try
             {
-                return Ok(_userService.Login(loginDto));
+                var user = _userService.Login(loginDto);
+                return Ok(user);
             }
             catch (NotFoundException ex)
             {
@@ -46,14 +47,16 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register(RegisterDto registerDto)
+        public async Task<IActionResult> Register(RegisterDto registerDto)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _userService.Register(registerDto);
-                    return Ok();
+                    var user = await _userService.Register(registerDto);
+                    if (user != null)
+                        return Ok(user);
+                    return BadRequest(new { Message = "No se pudo crear el usuario" });
                 }
                 else
                 {

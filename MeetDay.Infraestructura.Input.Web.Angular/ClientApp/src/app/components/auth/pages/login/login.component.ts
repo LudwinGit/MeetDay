@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      telephone: ['', Validators.required],
       password: ['', Validators.required],
+      username: ['',Validators.required]
     });
   }
 
@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
           alert(res.message);
         },
         error: (err) => {
+          this._utils.loading(0);
           alert(err?.error.message);
         },
       });
@@ -67,6 +68,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['auth'])
         },
         error: (err) => {
+          this._utils.loading(0);
           alert(err?.error.message);
         },
       });

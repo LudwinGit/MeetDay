@@ -5,15 +5,15 @@
         <div class="form-container sign-up-container">
             <form [formGroup]="sigupForm" >
                 <h1>Crear cuenta</h1>
-                <div class="social-container">
+                <!-- <div class="social-container">
                     <a href="#" class="social"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="social"><i class="bi bi-google"></i></a>
-                </div>
-                <span>O puedes usar tu correo</span>
+                </div> -->
+                <!-- <span>O puedes usar tu correo</span> -->
                 <input formControlName="firstname" type="text" placeholder="Nombre" />
                 <input formControlName="lastname" type="text" placeholder="Apellido" />
                 <input formControlName="email" type="email" placeholder="Correo" />
-                <input formControlName="telephone" type="telephone" placeholder="Telefono" />
+                <input formControlName="username" type="text" placeholder="Usuario" />
                 <input formControlName="password" type="password" placeholder="Contraseña" />
                 <button [disabled]="sigupForm.invalid" type="button" (click)="onSubmitSignUp()" >Registrarse</button>
             </form>
@@ -21,11 +21,11 @@
         <div class="form-container sign-in-container">
             <form [formGroup]="loginForm">
                 <h1>Iniciar sesión</h1>
-                <div class="social-container">
+                <!-- <div class="social-container">
                     <a href="#" class="social"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="social"><i class="bi bi-google"></i></a>
-                </div>
-                <span>o usa tu correo</span>
+                </div> -->
+                <!-- <span>o usa tu correo</span> -->
                 <input formControlName="username" type="text" placeholder="Usuario" />
                 <small 
                 *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
