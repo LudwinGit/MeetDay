@@ -18,7 +18,7 @@ namespace MeetDay.Aplicacion.Core.Services
             var management = await _repository.AddAsync(new Management
             {
                 Name = managementDto.Name,
-                Observation = managementDto.Observation
+                Observation = managementDto.Observation,
             });
             return management;
         }
@@ -42,7 +42,7 @@ namespace MeetDay.Aplicacion.Core.Services
             management.DateUpdate = DateTime.Now;
             management.Observation = managementDto.Observation;
             management.State = managementDto.State;
-            return await _repository.Edit(management);
+            return _repository.Edit(management);
         }
     }
 }

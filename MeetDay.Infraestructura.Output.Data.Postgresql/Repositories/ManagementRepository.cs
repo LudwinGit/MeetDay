@@ -13,33 +13,31 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
         }
         public async Task<Management> AddAsync(Management entity)
         {
-            // _db.Managements.Add(entity);
-            await _db.SaveChangesAsync();
+            await _db.Managements.AddAsync(entity);
+            _db.SaveChanges();
             return entity;
         }
 
-        public async void Delete(Management entity)
+        public void Delete(Management entity)
         {
-            // _db.Managements.Remove(entity);
-            await _db.SaveChangesAsync();
+            _db.Managements.Remove(entity);
+            _db.SaveChanges();
         }
 
-        public async Task<int> Edit(Management entity)
+        public int Edit(Management entity)
         {
-            // _db.Managements.Update(entity);
-            return await _db.SaveChangesAsync();
+            _db.Managements.Update(entity);
+            return _db.SaveChanges();
         }
 
         public List<Management> FindAll()
         {
-            return null;
-            // return _db.Managements.ToList();
+            return _db.Managements.ToList();
         }
 
         public async Task<Management> FindById(int id)
         {
-            return null;
-            // return await _db.Managements.FindAsync(id);
+            return await _db.Managements.FindAsync(id);
         }
     }
 }

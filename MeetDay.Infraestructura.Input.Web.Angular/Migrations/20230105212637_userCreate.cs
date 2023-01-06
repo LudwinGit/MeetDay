@@ -23,8 +23,8 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
                     Role = table.Column<string>(type: "character varying(3)", maxLength: 3, nullable: true),
                     Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
                     State = table.Column<string>(type: "character varying(3)", maxLength: 3, nullable: true),
-                    DateCreate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    DateUpdate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    DateCreate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    DateUpdate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -16,6 +16,6 @@ namespace MeetDay.Dominio.Core.Entity
         [MaxLength(1000)]
         public string Observation { get; set; }
         public DateTime DateCreate { get; set; } = DateTime.Now;
-        public DateTime DateUpdate { get; set; }
+        public DateTime DateUpdate { get; set; } = DateTime.Now;
     }
 }

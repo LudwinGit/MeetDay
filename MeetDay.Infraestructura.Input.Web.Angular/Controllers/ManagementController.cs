@@ -26,13 +26,13 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
         {
             try
             {
-                var managements= _mapper.Map<List<ManagementDto>>(_managementService.GetAll());
+                var managements = _mapper.Map<List<ManagementDto>>(_managementService.GetAll());
                 return new ResponseDto
                 {
                     Success = true,
                     Result = managements,
                     Message = "",
-                    Errors = {}
+                    Errors = { }
                 };
             }
             catch (Exception ex)
@@ -53,13 +53,39 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
                     Success = true,
                     Result = management,
                     Message = "",
-                    Errors = {}
+                    Errors = { }
                 };
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
                 return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult<ResponseDto> Create(ManagementDto managementDto)
+        {
+            try
+            {
+                var management = _mapper.Map<ManagementDto>(_managementService.Create(managementDto));
+                return new ResponseDto
+                {
+                    Success = true,
+                    Result = management,
+                    Message = "Creado correctamente"
+                };
+            }
+            catch (Exception ex)
+            {
+                var errores = new List<string>();
+                errores.Add(ex.ToString());
+                return new ResponseDto
+                {
+                    Success = false,
+                    Message = "Ocurrió un error al guardar la gestion",
+                    Errors = errores
+                };
             }
         }
     }

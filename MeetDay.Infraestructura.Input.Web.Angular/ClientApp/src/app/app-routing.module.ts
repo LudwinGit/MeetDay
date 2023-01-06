@@ -29,6 +29,13 @@ const routes: Routes = [
       import('./components/users/users.module').then((m) => m.UsersModule),
   },
   {
+    path: 'managements',
+    loadChildren: () =>
+      import('./components/management/management.module').then(
+        (m) => m.ManagementModule
+      ),
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: 'auth',

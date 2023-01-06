@@ -24,7 +24,7 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<int> Edit(User entity)
+        public int Edit(User entity)
         {
             throw new NotImplementedException();
         }

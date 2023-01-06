@@ -10,14 +10,12 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Contexts
         {
 
         }
-        // public DbSet<Management> Managements {get;set;}
+        public DbSet<Management> Managements {get;set;}
         public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfiguration(new UserConfig());
-            // builder.ApplyConfiguration(new ManagementConfig());
         }
     }
 }

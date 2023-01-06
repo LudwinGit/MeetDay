@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       this._service.login(this.loginForm.value).subscribe({
         next: (res) => {
           this._utils.loading(0);
-          alert(res.message);
+          
         },
         error: (err) => {
           this._utils.loading(0);
