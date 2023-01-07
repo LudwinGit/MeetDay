@@ -22,4 +22,8 @@ export class ManagementService {
   getAll() {
     return this.http.get<ResponseObject>(`${this.baseUrl}api/management`);
   }
+
+  getAllCatalogDocuments() {
+    return this.http.get<ResponseObject>(`${this.baseUrl}api/catalog/documents`);
+  }
 }

@@ -12,6 +12,7 @@ namespace MeetDay.Aplicacion.Utils
             CreateMap<User, UserDto>();
             CreateMap<Management, ManagementDto>();
             CreateMap<ManagementDto, Management>();
+            CreateMap<CatalogDocument, DocumentManagementDto>();
         }
     }
 }

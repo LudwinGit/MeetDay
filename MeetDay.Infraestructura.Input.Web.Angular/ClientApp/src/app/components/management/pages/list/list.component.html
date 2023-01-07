@@ -28,24 +28,24 @@
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Estado</th>
-            <th>Documentos</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let management of managements">
             <td>{{ management.id }}</td>
-            <td>27/12/2022</td>
-            <td>15:30</td>
+            <td>{{ management.name }}</td>
+            <td>{{ management.observation }}</td>
             <td>
-              <span class="badge bg-secondary">Validación</span>
+              <span class="badge bg-secondary" *ngIf="management.state=='VAL'">Validación</span>
+              <span class="badge bg-success" *ngIf="management.state=='ACT'">Activo</span>
+              <span class="badge bg-danger" *ngIf="management.state=='INC'">Inactivo</span>
             </td>
-            <td>{{ management.documents.length }}</td>
             <td>
-              <button type="button" class="btn btn-danger text-center">
-                <i class="bi bi-trash"></i>
+              <button type="button" class="btn btn-info text-center" disabled>
+                <i class="bi bi-pencil-square"></i>
               </button>
-              <button type="button" class="btn btn-success m-1">
+              <button type="button" class="btn btn-success m-1" disabled>
                 <i class="bi bi-browser-safari"></i>
               </button>
             </td>

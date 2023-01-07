@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetDay.Aplicacion", "MeetDay.Aplicacion\MeetDay.Aplicacion.csproj", "{C295AA51-9DC9-4A75-9D70-057E134669BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetDay.Dominio", "MeetDay.Dominio\MeetDay.Dominio.csproj", "{DD08A6D1-7CE0-4304-B7C9-94194E430434}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetDay.Infraestructura.Input.Web.Angular", "MeetDay.Infraestructura.Input.Web.Angular\MeetDay.Infraestructura.Input.Web.Angular.csproj", "{FF55D8A0-DA8C-4932-8021-A0DF53B2F878}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetDay.Infraestructura.Output.Data.Postgresql", "MeetDay.Infraestructura.Output.Data.Postgresql\MeetDay.Infraestructura.Output.Data.Postgresql.csproj", "{C69CB58D-D0AE-41AF-8A4B-DF5BC2FE8E8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C295AA51-9DC9-4A75-9D70-057E134669BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C295AA51-9DC9-4A75-9D70-057E134669BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C295AA51-9DC9-4A75-9D70-057E134669BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C295AA51-9DC9-4A75-9D70-057E134669BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD08A6D1-7CE0-4304-B7C9-94194E430434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD08A6D1-7CE0-4304-B7C9-94194E430434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD08A6D1-7CE0-4304-B7C9-94194E430434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD08A6D1-7CE0-4304-B7C9-94194E430434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF55D8A0-DA8C-4932-8021-A0DF53B2F878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF55D8A0-DA8C-4932-8021-A0DF53B2F878}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF55D8A0-DA8C-4932-8021-A0DF53B2F878}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF55D8A0-DA8C-4932-8021-A0DF53B2F878}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69CB58D-D0AE-41AF-8A4B-DF5BC2FE8E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69CB58D-D0AE-41AF-8A4B-DF5BC2FE8E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69CB58D-D0AE-41AF-8A4B-DF5BC2FE8E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69CB58D-D0AE-41AF-8A4B-DF5BC2FE8E8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

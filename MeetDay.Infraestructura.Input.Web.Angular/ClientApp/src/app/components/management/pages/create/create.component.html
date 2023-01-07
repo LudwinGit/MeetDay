@@ -48,12 +48,12 @@
               [(ngModel)]="documentoActual"
               class="form-control"
             >
-              <option value="0">Seleccione el documento</option>
+              <option value="">Seleccione el documento</option>
               <option
-                value="{{ documento.id }}"
+                value="{{ documento.key }}"
                 *ngFor="let documento of documentosDisponibles"
               >
-                {{ documento.name }}
+                {{ documento.value }}
               </option>
             </select>
             <button
@@ -65,8 +65,11 @@
             </button>
           </div>
           <div *ngFor="let doc of documentos" class="mb-3">
-            <label for="time">{{ doc.name }}</label>
+            <label for="time">{{ doc.value }}</label>
             <input type="file" class="form-control" />
+            <button class="btn btn-danger" (click)="quitarDocumento(doc)">
+              Quitar
+            </button>
           </div>
         </div>
       </div>

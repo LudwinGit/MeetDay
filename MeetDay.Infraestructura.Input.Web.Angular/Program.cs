@@ -1,7 +1,9 @@
 using System.Text;
 using MeetDay.Aplicacion.Core.Interfaces;
 using MeetDay.Aplicacion.Core.Services;
+using MeetDay.Aplicacion.Utils;
 using MeetDay.Dominio.Core.Entity;
+using MeetDay.Dominio.Core.Interfaces;
 using MeetDay.Dominio.Core.Interfaces.Repositories;
 using MeetDay.Infraestructura.Output.Data.Postgresql.Contexts;
 using MeetDay.Infraestructura.Output.Data.Postgresql.Repositories;
@@ -26,6 +28,11 @@ builder.Services.AddDbContext<MeetDayContext>(
     }).LogTo(Console.WriteLine, LogLevel.Information)
 );
 
+builder.Services.AddSingleton<IGetConfiguration, GetConfiguration>(options =>
+{
+    return new GetConfiguration(connectionString);
+});
+
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // builder.Services.AddScoped<IGestionService<Gestion,Guid>,GestionService>();
@@ -35,6 +42,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IManagementRepository<Management, int>, ManagementRepository>();
 builder.Services.AddScoped<IManagementService, ManagementService>();
 builder.Services.AddScoped<IManagementDocumentRepository<DocumentManagement, int>, ManagementDocumentRepository>();
+builder.Services.AddScoped<ICatalogRepository, CatalogRepository>();
+builder.Services.AddScoped<ICatalogService, CatalogService>();
 
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

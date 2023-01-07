@@ -1,9 +1,9 @@
-import { Document } from '../Document';
+import { Option } from '../Util/Option';
 
 export interface ManagementDto {
   id: number;
   name: string;
   state: string;
   observation: string;
-  documents: Document[];
+  documents: Option[];
 }

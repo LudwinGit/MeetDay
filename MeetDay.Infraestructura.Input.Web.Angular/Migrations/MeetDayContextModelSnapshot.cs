@@ -26,38 +26,45 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("DateCreate")
                         .HasMaxLength(1000)
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("date_create");
 
                     b.Property<DateTime>("DateUpdate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("date_update");
 
                     b.Property<string>("Name")
                         .HasMaxLength(150)
-                        .HasColumnType("character varying(150)");
+                        .HasColumnType("character varying(150)")
+                        .HasColumnName("name");
 
                     b.Property<string>("State")
                         .HasMaxLength(3)
-                        .HasColumnType("character varying(3)");
+                        .HasColumnType("character varying(3)")
+                        .HasColumnName("state");
 
                     b.HasKey("Id");
 
-                    b.ToTable("catalogDocuments");
+                    b.ToTable("catalog_documents");
                 });
 
             modelBuilder.Entity("MeetDay.Dominio.Core.Entity.DocumentManagement", b =>
                 {
                     b.Property<int>("CatalogDocumentId")
                         .HasColumnType("integer")
+                        .HasColumnName("catalogdocumentid")
                         .HasColumnOrder(0);
 
                     b.Property<int>("ManagementId")
                         .HasColumnType("integer")
+                        .HasColumnName("managementid")
                         .HasColumnOrder(1);
 
                     b.HasKey("CatalogDocumentId", "ManagementId");
@@ -69,27 +76,33 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("DateCreate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("date_create");
 
                     b.Property<DateTime>("DateUpdate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("date_update");
 
                     b.Property<string>("Name")
                         .HasMaxLength(150)
-                        .HasColumnType("character varying(150)");
+                        .HasColumnType("character varying(150)")
+                        .HasColumnName("name");
 
                     b.Property<string>("Observation")
                         .HasMaxLength(1000)
-                        .HasColumnType("character varying(1000)");
+                        .HasColumnType("character varying(1000)")
+                        .HasColumnName("observation");
 
                     b.Property<string>("State")
                         .HasMaxLength(3)
-                        .HasColumnType("character varying(3)");
+                        .HasColumnType("character varying(3)")
+                        .HasColumnName("state");
 
                     b.HasKey("Id");
 
@@ -100,44 +113,54 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DateCreate")
-                        .HasColumnType("timestamp without time zone");
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("date_created");
 
                     b.Property<DateTime>("DateUpdate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("date_update");
 
                     b.Property<string>("Email")
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("email");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("firstname");
 
                     b.Property<string>("LastName")
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("lastname");
 
                     b.Property<string>("Password")
                         .HasMaxLength(150)
-                        .HasColumnType("character varying(150)");
+                        .HasColumnType("character varying(150)")
+                        .HasColumnName("password");
 
                     b.Property<string>("Role")
                         .HasMaxLength(3)
-                        .HasColumnType("character varying(3)");
+                        .HasColumnType("character varying(3)")
+                        .HasColumnName("role");
 
                     b.Property<string>("State")
                         .HasMaxLength(3)
-                        .HasColumnType("character varying(3)");
+                        .HasColumnType("character varying(3)")
+                        .HasColumnName("state");
 
                     b.Property<string>("Username")
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("username");
 
                     b.HasKey("Id");
 

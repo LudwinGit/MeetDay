@@ -26,7 +26,7 @@ namespace MeetDay.Aplicacion.Core.Services
             List<CatalogDocument> documents = new List<CatalogDocument>();
             foreach (var item in managementDto.Documents)
             {
-                await _managementDocumentrepository.AddAsync(new DocumentManagement { ManagementId = management.Id, CatalogDocumentId = item.id });
+                await _managementDocumentrepository.AddAsync(new DocumentManagement { ManagementId = management.Id, CatalogDocumentId = (int.Parse(item.key)) });
             }
             return management;
         }

@@ -1,15 +1,24 @@
+using Dapper;
+using MeetDay.Dominio.Core.Dtos.Catolog;
+using MeetDay.Dominio.Core.Dtos.Management;
 using MeetDay.Dominio.Core.Entity;
+using MeetDay.Dominio.Core.Interfaces;
 using MeetDay.Dominio.Core.Interfaces.Repositories;
 using MeetDay.Infraestructura.Output.Data.Postgresql.Contexts;
+using MeetDay.Infraestructura.Output.Data.Postgresql.Queries;
+using Microsoft.Extensions.Configuration;
+using Npgsql;
 
 namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
 {
     public class ManagementRepository : IManagementRepository<Management, int>
     {
         private readonly MeetDayContext _db;
-        public ManagementRepository(MeetDayContext context)
+        private readonly string _connectionString;
+        public ManagementRepository(MeetDayContext context, IGetConfiguration configuration)
         {
             _db = context;
+            _connectionString = configuration.GetConnectionString();
         }
         public async Task<Management> AddAsync(Management entity)
         {
@@ -37,7 +46,19 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Repositories
 
         public async Task<Management> FindById(int id)
         {
-            return await _db.Managements.FindAsync(id);
+            var management = _db.Managements.Find(id);
+            IEnumerable<OptionDto> documentos;
+            string query = ManagementQueries.DocumentsManagement;
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                var queryInput = new
+                {
+                    managementId = id
+                };
+                documentos = await connection.QueryAsync<OptionDto>(query, queryInput);
+            }
+            management.Documents = documentos.ToList();
+            return management;
         }
     }
 }

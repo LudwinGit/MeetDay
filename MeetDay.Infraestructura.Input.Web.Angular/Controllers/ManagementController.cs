@@ -43,11 +43,11 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<ResponseDto> Get(int id)
+        public async Task<ResponseDto> Get(int id)
         {
             try
             {
-                var management = _mapper.Map<ManagementDto>(_managementService.GetById(id));
+                var management = _mapper.Map<ManagementDto>(await _managementService.GetById(id));
                 return new ResponseDto
                 {
                     Success = true,
@@ -59,7 +59,13 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return new ResponseDto
+                {
+                    Success = false,
+                    Result = null,
+                    Message = "",
+                    Errors = { ex.ToString() }
+                };
             }
         }
 

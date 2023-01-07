@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Document } from 'src/app/shared/Model/Document';
+import { Option } from 'src/app/shared/Model/Util/Option';
 import { ManagementDto } from 'src/app/shared/Model/Management/ManagementDto';
 import { FunctionsService } from 'src/app/utilities/functions.service';
 import { ManagementService } from '../../management.service';
@@ -11,13 +11,9 @@ import { ManagementService } from '../../management.service';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit {
-  documentos: Document[] = [];
-  documentosDisponibles: Document[] = [
-    { id: 1, name: 'DPI' },
-    { id: 2, name: 'PASAPORTE' },
-    { id: 3, name: 'LICENCIA' },
-  ];
-  documentoActual: number = 0;
+  documentos: Option[] = [];
+  documentosDisponibles: Option[] = [];
+  documentoActual: string = '';
   management: ManagementDto = {
     name: '',
     documents: [],
@@ -31,31 +27,38 @@ export class CreateComponent implements OnInit {
     private _utils: FunctionsService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.obtenerDocumentos();
+  }
 
   cancelar() {
     this.router.navigate(['managements']);
   }
 
   obtenerDocumentos() {
-    // this._service.getAll().subscribe((response) => {
-    //   console.log('====================================');
-    //   console.log(response.Result);
-    //   console.log('====================================');
-    // });
+    this._service.getAllCatalogDocuments().subscribe((response) => {
+      if (response.success) {
+        this.documentosDisponibles = response.result;
+      }
+    });
   }
 
   agregarDocumento() {
     let doc = this.documentosDisponibles.find(
-      (x) => x.id == this.documentoActual
+      (x) => x.key == this.documentoActual
     );
     if (doc) {
       this.documentos.push(doc);
       this.documentosDisponibles = this.documentosDisponibles.filter(
-        (f) => f.id != this.documentoActual
+        (f) => f.key != this.documentoActual
       );
-      this.documentoActual = 0;
+      this.documentoActual = '';
     }
+  }
+
+  quitarDocumento(documento: Option) {
+    this.documentosDisponibles.push(documento);
+    this.documentos = this.documentos.filter(f=> f.key != documento.key);
   }
 
   crear() {

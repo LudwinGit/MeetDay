@@ -7,9 +7,9 @@ namespace MeetDay.Dominio.Core.Entity
     public class DocumentManagement
     {
         [Key]
-        [Column(Order = 0)]
+        [Column("catalogdocumentid", Order = 0)]
         public int CatalogDocumentId { get; set; }
-        [Column(Order = 1)]
+        [Column("managementid", Order = 1)]
         public int ManagementId { get; set; }
     }
 }

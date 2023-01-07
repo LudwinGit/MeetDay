@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using MeetDay.Dominio.Core.Dtos.Catolog;
 
 namespace MeetDay.Dominio.Core.Dtos.Management
 {
@@ -11,6 +12,6 @@ namespace MeetDay.Dominio.Core.Dtos.Management
         public string State { get; set; }
         [StringLength(1000)]
         public string Observation { get; set; }
-        public List<DocumentManagementDto> Documents { get; set; } = new List<DocumentManagementDto>();
+        public List<OptionDto> Documents { get; set; } = new List<OptionDto>();
     }
 }
