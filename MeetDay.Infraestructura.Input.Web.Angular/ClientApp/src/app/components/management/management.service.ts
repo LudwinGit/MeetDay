@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
+import { ManagementDto } from 'src/app/shared/Model/Management/ManagementDto';
 import { ResponseObject } from 'src/app/shared/ResponseObject';
 
 @Injectable({
@@ -11,8 +12,11 @@ export class ManagementService {
     @Inject('BASE_URL') private baseUrl: string
   ) {}
 
-  create(managementObj: any) {
-    return this.http.post<any>(`${this.baseUrl}api/management/create`, managementObj);
+  create(managementObj: ManagementDto) {
+    return this.http.post<ResponseObject>(
+      `${this.baseUrl}api/management`,
+      managementObj
+    );
   }
 
   getAll() {

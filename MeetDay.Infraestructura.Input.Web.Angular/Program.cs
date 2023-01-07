@@ -34,9 +34,10 @@ builder.Services.AddScoped<IUserRepository<User, int>, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IManagementRepository<Management, int>, ManagementRepository>();
 builder.Services.AddScoped<IManagementService, ManagementService>();
+builder.Services.AddScoped<IManagementDocumentRepository<DocumentManagement, int>, ManagementDocumentRepository>();
 
 
-builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 builder.Services.AddAuthentication(x =>

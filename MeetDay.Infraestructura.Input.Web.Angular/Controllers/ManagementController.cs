@@ -64,15 +64,16 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Controllers
         }
 
         [HttpPost]
-        public ActionResult<ResponseDto> Create(ManagementDto managementDto)
+        public async Task<ResponseDto> CreateUpdate(ManagementDto managementDto)
         {
             try
             {
-                var management = _mapper.Map<ManagementDto>(_managementService.Create(managementDto));
+                var management = await _managementService.Create(managementDto);
+
                 return new ResponseDto
                 {
                     Success = true,
-                    Result = management,
+                    Result = _mapper.Map<ManagementDto>(management),
                     Message = "Creado correctamente"
                 };
             }

@@ -6,6 +6,7 @@ import { CreateComponent } from './pages/create/create.component';
 import { EditComponent } from './pages/edit/edit.component';
 import { ListComponent } from './pages/list/list.component';
 import { SkeletonModule } from "../skeleton/skeleton.module";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SkeletonModule } from "../skeleton/skeleton.module";
     imports: [
         CommonModule,
         ManagementRoutingModule,
-        SkeletonModule
+        SkeletonModule,
+        FormsModule
     ]
 })
 export class ManagementModule { }

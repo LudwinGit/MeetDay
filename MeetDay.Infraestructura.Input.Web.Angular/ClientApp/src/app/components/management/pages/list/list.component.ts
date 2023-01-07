@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ManagementDto } from 'src/app/shared/Model/Management/ManagementDto';
 import { FunctionsService } from 'src/app/utilities/functions.service';
 import { ManagementService } from '../../management.service';
 
@@ -9,6 +10,8 @@ import { ManagementService } from '../../management.service';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
+  managements: ManagementDto[] = [];
+
   constructor(
     private router: Router,
     private _service: ManagementService,
@@ -24,9 +27,9 @@ export class ListComponent implements OnInit {
 
   listado() {
     this._service.getAll().subscribe((response) => {
-      console.log('====================================');
-      console.log(response.Result);
-      console.log('====================================');
+      if (response.success) {
+        this.managements = response.result;
+      }
     });
   }
 }

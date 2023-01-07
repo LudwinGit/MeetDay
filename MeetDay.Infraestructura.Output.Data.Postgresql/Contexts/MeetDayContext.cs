@@ -10,12 +10,18 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Contexts
         {
 
         }
-        public DbSet<Management> Managements {get;set;}
+        public DbSet<Management> Managements { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<CatalogDocument> CatalogDocuments { get; set; }
+        public DbSet<DocumentManagement> DocumentManagements { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
+            modelBuilder.Entity<DocumentManagement>(x =>
+           {
+               x.HasKey(x => new { x.CatalogDocumentId, x.ManagementId });
+           });
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

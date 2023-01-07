@@ -9,17 +9,25 @@ namespace MeetDay.Aplicacion.Core.Services
     public class ManagementService : IManagementService
     {
         private readonly IManagementRepository<Management, int> _repository;
-        public ManagementService(IManagementRepository<Management, int> repository)
+        private readonly IManagementDocumentRepository<DocumentManagement, int> _managementDocumentrepository;
+        public ManagementService(IManagementRepository<Management, int> repository, IManagementDocumentRepository<DocumentManagement, int> managementDocumentrepository)
         {
             _repository = repository;
+            _managementDocumentrepository = managementDocumentrepository;
         }
         public async Task<Management> Create(ManagementDto managementDto)
         {
             var management = await _repository.AddAsync(new Management
             {
                 Name = managementDto.Name,
-                Observation = managementDto.Observation,
+                Observation = managementDto.Observation
             });
+
+            List<CatalogDocument> documents = new List<CatalogDocument>();
+            foreach (var item in managementDto.Documents)
+            {
+                await _managementDocumentrepository.AddAsync(new DocumentManagement { ManagementId = management.Id, CatalogDocumentId = item.id });
+            }
             return management;
         }
 

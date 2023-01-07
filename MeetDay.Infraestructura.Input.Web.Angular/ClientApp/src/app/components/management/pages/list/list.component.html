@@ -17,7 +17,7 @@
     </div>
     <div class="col-12 mb-2">
       <button type="button" class="btn btn-primary" (click)="create()">
-        Crear cita
+        Crear gestión
       </button>
     </div>
     <div class="col-12">
@@ -28,17 +28,19 @@
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Estado</th>
+            <th>Documentos</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>V0001</td>
+          <tr *ngFor="let management of managements">
+            <td>{{ management.id }}</td>
             <td>27/12/2022</td>
             <td>15:30</td>
             <td>
               <span class="badge bg-secondary">Validación</span>
             </td>
+            <td>{{ management.documents.length }}</td>
             <td>
               <button type="button" class="btn btn-danger text-center">
                 <i class="bi bi-trash"></i>
@@ -48,30 +50,10 @@
               </button>
             </td>
           </tr>
-          <tr>
-            <td>V0002</td>
-            <td>10/01/2023</td>
-            <td>08:15</td>
-            <td>
-              <span class="badge bg-success">En curso</span>
-            </td>
-            <td>
-              <button type="button" class="btn btn-success">
-                <i class="bi bi-browser-safari"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>V0003</td>
-            <td>15/01/2022</td>
-            <td>11:00</td>
-            <td>
-              <span class="badge bg-danger">Anulado</span>
-            </td>
-            <td></td>
-          </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+
+<app-footer></app-footer>

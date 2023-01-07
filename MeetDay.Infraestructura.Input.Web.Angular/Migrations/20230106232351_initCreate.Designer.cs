@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
 {
     [DbContext(typeof(MeetDayContext))]
-    [Migration("20230105212727_managmentCreate")]
-    partial class managmentCreate
+    [Migration("20230106232351_initCreate")]
+    partial class initCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,49 @@ namespace MeetDay.Infraestructura.Input.Web.Angular.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("MeetDay.Dominio.Core.Entity.CatalogDocument", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateCreate")
+                        .HasMaxLength(1000)
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateUpdate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
+
+                    b.Property<string>("State")
+                        .HasMaxLength(3)
+                        .HasColumnType("character varying(3)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("catalogDocuments");
+                });
+
+            modelBuilder.Entity("MeetDay.Dominio.Core.Entity.DocumentManagement", b =>
+                {
+                    b.Property<int>("CatalogDocumentId")
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
+
+                    b.Property<int>("ManagementId")
+                        .HasColumnType("integer")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("CatalogDocumentId", "ManagementId");
+
+                    b.ToTable("document_management");
+                });
 
             modelBuilder.Entity("MeetDay.Dominio.Core.Entity.Management", b =>
                 {

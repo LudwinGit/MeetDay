@@ -8,18 +8,34 @@
         <form>
           <div class="mb-3">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" />
+            <input
+              name="name"
+              [(ngModel)]="management.name"
+              type="text"
+              class="form-control"
+            />
           </div>
           <div class="mb-3">
             <label for="comentarios" class="form-label">Comentarios</label>
             <textarea
+              name="observation"
+              [(ngModel)]="management.observation"
               name="comentarios"
               rows="5"
               class="form-control"
             ></textarea>
           </div>
-          <button type="button" class="btn btn-primary mr-4">Enviar</button>
-          <button type="button" class="btn btn-danger">Cancelar</button>
+          <button
+            type="button"
+            class="btn btn-primary mr-4"
+            [disabled]="management.name == '' || management.observation == ''"
+            (click)="crear()"
+          >
+            Enviar
+          </button>
+          <button type="button" class="btn btn-danger" (click)="cancelar()">
+            Cancelar
+          </button>
         </form>
       </div>
       <div class="col-1"></div>
@@ -27,16 +43,29 @@
         <div class="p-3">
           <p class="text-center text-subtitle">Documentos requeridos</p>
           <div class="mb-3">
-            <select class="form-control">
-              <option>Seleccione el documento</option>
-              <option value="dpi">DPI</option>
-              <option value="nit">NIT</option>
-              <option value="pasaporte">Pasaporte</option>
+            <select
+              name="documentoActual"
+              [(ngModel)]="documentoActual"
+              class="form-control"
+            >
+              <option value="0">Seleccione el documento</option>
+              <option
+                value="{{ documento.id }}"
+                *ngFor="let documento of documentosDisponibles"
+              >
+                {{ documento.name }}
+              </option>
             </select>
-            <button type="button" class="btn btn-primary">Agregar</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="agregarDocumento()"
+            >
+              Agregar
+            </button>
           </div>
-          <div class="mb-3">
-            <label for="time">DPI</label>
+          <div *ngFor="let doc of documentos" class="mb-3">
+            <label for="time">{{ doc.name }}</label>
             <input type="file" class="form-control" />
           </div>
         </div>

@@ -1,5 +1,5 @@
 export class ResponseObject {
-  Success?: boolean;
-  Result: any;
-  Message?: string;
+  success?: boolean;
+  result: any;
+  message?: string;
 }
