@@ -14,6 +14,9 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<CatalogDocument> CatalogDocuments { get; set; }
         public DbSet<DocumentManagement> DocumentManagements { get; set; }
+        public DbSet<DocumentAppointment> DocumentAppointments { get; set; }
+        public DbSet<Document> Documents { get; set; }
+        public DbSet<Appointment> MyProperty { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,6 +24,10 @@ namespace MeetDay.Infraestructura.Output.Data.Postgresql.Contexts
            {
                x.HasKey(x => new { x.CatalogDocumentId, x.ManagementId });
            });
+            modelBuilder.Entity<DocumentAppointment>(x =>
+            {
+                x.HasKey(x => new { x.DocumentId, x.CatalogDocumentId, x.AppointmentId });
+            });
             base.OnModelCreating(modelBuilder);
         }
     }
