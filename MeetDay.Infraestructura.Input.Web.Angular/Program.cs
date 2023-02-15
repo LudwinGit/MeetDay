@@ -8,6 +8,7 @@ using MeetDay.Dominio.Core.Interfaces.Repositories;
 using MeetDay.Infraestructura.Output.Data.Postgresql.Contexts;
 using MeetDay.Infraestructura.Output.Data.Postgresql.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -31,6 +32,12 @@ builder.Services.AddDbContext<MeetDayContext>(
 builder.Services.AddSingleton<IGetConfiguration, GetConfiguration>(options =>
 {
     return new GetConfiguration(connectionString);
+});
+
+builder.Services.Configure<FormOptions>(o=>{
+    o.ValueLengthLimit = int.MaxValue;
+    o.MultipartBodyLengthLimit = int.MaxValue;
+    o.MemoryBufferThreshold = int.MaxValue;
 });
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
